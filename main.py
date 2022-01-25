@@ -3,24 +3,17 @@
 
 # Import files needed
 import pandas
+
+# Create a data from using pandas to work with
 nato_data_frame = pandas.read_csv("nato_phonetic_alphabet.csv")
-print(nato_data_frame)
-# Loop through rows of a data frame
-# for (index, row) in student_data_frame.iterrows():
-#     #Access index and row
-#     #Access row.student or row.score
-#     pass
 
-# Keyword Method with iterrows()
-# {new_key:new_value for (index, row) in df.iterrows()}
-
-# TODO 1. Create a dictionary in this format:
+# Using dict comprehension I create a dictionary for later use. It is understood that this can be done using ".to_dict"
+# however, the guide wants it done this way for practice.
 nato_dict = {row.letter: row.code for (index, row) in nato_data_frame.iterrows()}
-print(nato_dict)
 
-
-# TODO 2. Create a list of the phonetic code words from a word that the user inputs.
+# Ask the user for input
 user_input = input("Enter your word to convert to NATO phonetics.\n").upper()
 
+# Create the list of nato phonetic code words and output them to the screen.
 nato_output = [nato_dict[letter] for letter in user_input]
 print(nato_output)
