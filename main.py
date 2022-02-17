@@ -11,6 +11,7 @@ nato_data_frame = pandas.read_csv("nato_phonetic_alphabet.csv")
 # however, the guide wants it done this way for practice.
 nato_dict = {row.letter: row.code for (index, row) in nato_data_frame.iterrows()}
 
+
 def convert():
     try:
         user_input = input("Enter your word to convert to NATO phonetics.\n").upper()
@@ -21,5 +22,6 @@ def convert():
         convert()
     else:
         print(nato_output)
+
 
 convert()
